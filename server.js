@@ -4,6 +4,7 @@ const morgan = require("morgan");
 const connectDB = require("./config/db");
 const colors = require("colors");
 const errorHandlerFunction = require("./middleware/error");
+
 // Import Routes
 const bootcamps = require("./routes/bootcamps");
 
