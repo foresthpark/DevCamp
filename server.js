@@ -7,6 +7,7 @@ const errorHandlerFunction = require("./middleware/error");
 
 // Import Routes
 const bootcamps = require("./routes/bootcamps");
+const courses = require("./routes/courses");
 
 const app = express();
 app.use(express.json()); // Body Parser
@@ -21,6 +22,7 @@ connectDB();
 
 // Middleware
 app.use("/api/v1/bootcamps", bootcamps);
+app.use("/api/v1/courses", courses);
 
 app.use(errorHandlerFunction); // Custom error handler
 
