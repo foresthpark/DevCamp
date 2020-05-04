@@ -12,8 +12,9 @@
 		"housing": true,
 		"jobAssistance": true,
 		"jobGuarantee": false,
-		"acceptGovFund": true
-	},
+		"acceptGovFund": true,
+    "averageCost": 10000
+  },
 	{
 		"_id": "5d713a66ec8f2b88b8f830b8",
 		"user": "5d7a514b5d2c12c7449be046",
@@ -27,8 +28,9 @@
 		"housing": false,
 		"jobAssistance": true,
 		"jobGuarantee": false,
-		"acceptGovFund": true
-	},
+		"acceptGovFund": true,
+    "averageCost": 20000
+  },
 	{
 		"_id": "5d725a037b292f5f8ceff787",
 		"user": "5c8a1d5b0190b214360dc031",
@@ -42,8 +44,9 @@
 		"housing": false,
 		"jobAssistance": false,
 		"jobGuarantee": false,
-		"acceptGovFund": false
-	},
+		"acceptGovFund": false,
+    "averageCost": 8000
+  },
 	{
 		"_id": "5d725a1b7b292f5f8ceff788",
 		"user": "5c8a1d5b0190b214360dc032",
@@ -62,6 +65,7 @@
 		"housing": false,
 		"jobAssistance": true,
 		"jobGuarantee": true,
-		"acceptGovFund": true
-	}
+		"acceptGovFund": true,
+    "averageCost": 9000
+  }
 ]
