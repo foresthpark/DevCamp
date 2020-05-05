@@ -13,8 +13,6 @@ exports.getBootcamps = asyncHandler(async (req, res, next) => {
 
   // Copy of req.query
   const reqQuery = { ...req.query };
-  // console.log(req.query);
-  // console.log(reqQuery);
 
   // Fields to exclude
   const removeFields = ["select", "sort", "page", "limit"];
@@ -29,14 +27,11 @@ exports.getBootcamps = asyncHandler(async (req, res, next) => {
 
   // Create MongoDB operators ($gt, $gt, $lt etc)
   queryString = queryString.replace(/\b(gt|gte|lt|lte|in)\b/g, (match) => {
-    // console.log(match);
     return `$${match}`;
   });
-  // console.log(queryString);
 
   // Finding resource
-  console.log(JSON.parse(queryString));
-  query = Bootcamp.find(JSON.parse(queryString));
+  query = Bootcamp.find(JSON.parse(queryString)).populate("courses");
 
   // Select Fields
   if (req.query.select) {
@@ -144,7 +139,7 @@ exports.updateBootcamp = asyncHandler(async (req, res, next) => {
 
   res.status(200).json({
     success: true,
-    data: bootcamp,
+    updatedData: bootcamp,
   });
 });
 
@@ -153,7 +148,7 @@ exports.updateBootcamp = asyncHandler(async (req, res, next) => {
 // @access          Private
 
 exports.deleteBootcamp = asyncHandler(async (req, res, next) => {
-  const bootcamp = await Bootcamp.findByIdAndDelete(req.params.id);
+  const bootcamp = await Bootcamp.findById(req.params.id);
 
   if (!bootcamp) {
     return next(
@@ -161,9 +156,11 @@ exports.deleteBootcamp = asyncHandler(async (req, res, next) => {
     );
   }
 
+  bootcamp.remove();
+
   res.status(200).json({
     success: true,
-    data: bootcamp,
+    deletedData: bootcamp,
   });
 });
 
