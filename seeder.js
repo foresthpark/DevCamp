@@ -32,7 +32,7 @@ const courses = JSON.parse(
 const loadDataToDB = async () => {
   try {
     await Bootcamp.create(bootcamps);
-    // await Course.create(courses);
+    await Course.create(courses);
     console.log("Data Successfully Loaded to DB".green.inverse);
 
     process.exit();
