@@ -4,12 +4,14 @@ const dotenv = require("dotenv");
 const morgan = require("morgan");
 const connectDB = require("./config/db");
 const colors = require("colors");
+const cookieParser = require("cookie-parser");
 const errorHandlerFunction = require("./middleware/error");
 const fileUpload = require("express-fileupload");
 
 const app = express();
+app.use(cookieParser()); // Parse cookie header and populate req.cookies
 app.use(express.json()); // Body Parser
-app.use(fileUpload());
+app.use(fileUpload()); // File upload middleware. Allows access to req.body.files
 
 // Set static folder
 app.use(express.static(path.join(__dirname, "public")));
